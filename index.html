@@ -4,280 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mai Châu Hải — POS & AI cho quán nhỏ</title>
-<meta name="description" content="Giải pháp POS tự code, AI automation, tư vấn tech cho quán F&B nhỏ. Không phí tháng, chạy mọi thiết bị.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:oklch(12% 0.008 260);
-  --bg-card:oklch(16% 0.006 260);
-  --bg-card-hover:oklch(19% 0.008 260);
-  --text-1:oklch(95% 0.005 260);
-  --text-2:oklch(70% 0.01 260);
-  --text-3:oklch(50% 0.008 260);
-  --accent:oklch(72% 0.14 195);
-  --accent-warm:oklch(75% 0.15 75);
-  --border:oklch(22% 0.008 260);
-  --radius:16px;
-  --font:'Plus Jakarta Sans',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--font);background:var(--bg);color:var(--text-1);
-  line-height:1.6;letter-spacing:0.01em;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--accent);text-decoration:none}
-
-.page{max-width:1100px;margin:0 auto;padding:40px 20px 60px}
-.bento{display:grid;gap:16px}
-
-/* Row 1: hero 2fr + about 1fr */
-.row1{grid-template-columns:2fr 1fr}
-/* Row 2: 3 services — NOT 3 equal cards, use slight asymmetry */
-.row2{grid-template-columns:1.1fr 1fr 0.9fr}
-/* Row 3: case 1.4fr + tech 0.8fr + contact 0.8fr */
-.row3{grid-template-columns:1.4fr 0.8fr 0.8fr}
-
-.card{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:32px;
-  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),background 0.25s ease;
-  position:relative;overflow:hidden;
-}
-.card:hover{background:var(--bg-card-hover);transform:translateY(-2px)}
-.card:active{transform:translateY(0) scale(0.995)}
-
-/* ── HERO ── */
-.hero{display:flex;flex-direction:column;justify-content:center;min-height:280px}
-.hero .label{
-  font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px;
-}
-.hero h1{
-  font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.15;
-  text-wrap:balance;margin-bottom:12px;
-}
-.hero p{font-size:0.95rem;color:var(--text-2);max-width:50ch;margin-bottom:24px;line-height:1.7}
-.hero .cta{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent);color:oklch(15% 0.01 260);
-  padding:12px 28px;border-radius:10px;font-weight:700;font-size:0.88rem;
-  border:none;cursor:pointer;transition:transform 0.15s ease,opacity 0.15s ease;
-}
-.cta:hover{opacity:0.9;transform:translateY(-1px)}
-.cta:active{transform:scale(0.97)}
-.cta svg{width:18px;height:18px}
-
-/* ── ABOUT ── */
-.about{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.about .avatar{
-  width:110px;height:110px;border-radius:50%;
-  background:linear-gradient(135deg,oklch(60% 0.12 75),oklch(50% 0.1 195));
-  padding:3px;margin-bottom:16px;
-}
-.about .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-.about h2{font-size:1.1rem;font-weight:700;margin-bottom:4px}
-.about .role{font-size:0.78rem;color:var(--text-3);font-weight:500;margin-bottom:12px}
-.about .tagline{font-size:0.82rem;color:var(--text-2);font-style:italic;max-width:22ch}
-
-/* ── SERVICE CARDS ── */
-.svc .icon{
-  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px;font-size:1.3rem;
-}
-.svc h3{font-size:1rem;font-weight:700;margin-bottom:6px}
-.svc p{font-size:0.82rem;color:var(--text-2);line-height:1.6}
-.svc .tag{
-  display:inline-block;font-size:0.65rem;font-weight:600;
-  padding:3px 8px;border-radius:6px;margin-top:12px;letter-spacing:0.03em;
-}
-.svc-pos .icon{background:oklch(30% 0.06 195)}
-.svc-pos .tag{background:oklch(30% 0.06 195);color:var(--accent)}
-.svc-ai .icon{background:oklch(30% 0.06 310)}
-.svc-ai .tag{background:oklch(30% 0.06 310);color:oklch(75% 0.12 310)}
-.svc-consult .icon{background:oklch(30% 0.06 75)}
-.svc-consult .tag{background:oklch(30% 0.06 75);color:var(--accent-warm)}
-
-/* ── CASE STUDY ── */
-.case h3{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.metric{padding:14px;border-radius:10px;background:oklch(14% 0.005 260)}
-.metric .val{font-size:1.3rem;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.metric .lbl{font-size:0.72rem;color:var(--text-3);margin-top:2px}
-
-/* ── TECH ── */
-.tech{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.tech h3{font-size:0.85rem;font-weight:600;color:var(--text-3);margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase}
-.tech-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.tech-item{
-  padding:8px 14px;border-radius:8px;background:oklch(14% 0.005 260);
-  font-size:0.78rem;font-weight:600;color:var(--text-2);
-  border:1px solid var(--border);
-}
-
-/* ── CONTACT ── */
-.contact{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.contact h3{font-size:0.85rem;font-weight:600;color:var(--text-3);margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase}
-.contact-links{display:flex;flex-direction:column;gap:10px;width:100%}
-.contact-link{
-  display:flex;align-items:center;gap:10px;padding:12px 16px;
-  border-radius:10px;background:oklch(14% 0.005 260);border:1px solid var(--border);
-  font-size:0.85rem;font-weight:600;color:var(--text-1);
-  transition:background 0.2s ease;cursor:pointer;
-}
-.contact-link:hover{background:oklch(18% 0.008 260)}
-.contact-link svg{width:18px;height:18px;flex-shrink:0}
-
-/* ── FOOTER ── */
-.footer{text-align:center;padding:32px 20px 16px;font-size:0.72rem;color:var(--text-3)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .row1,.row2,.row3{grid-template-columns:1fr}
-  .hero{min-height:auto}
-  .hero h1{font-size:1.5rem}
-  .metrics{grid-template-columns:1fr 1fr}
-  .page{padding:24px 14px 40px}
-  .about{flex-direction:row;gap:16px;text-align:left}
-  .about .avatar{width:70px;height:70px;margin-bottom:0;flex-shrink:0}
-  .about .tagline{max-width:100%}
-}
-@media(min-width:769px) and (max-width:1024px){
-  .row1{grid-template-columns:1.5fr 1fr}
-  .row2{grid-template-columns:1fr 1fr 1fr}
-  .row3{grid-template-columns:1fr 1fr}
-  .row3 .contact{grid-column:1/-1}
-  .card{padding:24px}
-  .about .tagline{max-width:100%}
-}
-
-/* ── ENTRANCE ANIMATIONS ── */
-.card{opacity:0;transform:translateY(20px);animation:cardIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards}
-@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
-.row1 .card:nth-child(1){animation-delay:0.05s}
-.row1 .card:nth-child(2){animation-delay:0.1s}
-.row2 .card:nth-child(1){animation-delay:0.15s}
-.row2 .card:nth-child(2){animation-delay:0.2s}
-.row2 .card:nth-child(3){animation-delay:0.25s}
-.row3 .card:nth-child(1){animation-delay:0.3s}
-.row3 .card:nth-child(2){animation-delay:0.35s}
-.row3 .card:nth-child(3){animation-delay:0.4s}
-</style>
+<meta name="description" content="Giải pháp POS tự code, AI automation, tư vấn tech cho quán F&B nhỏ. Không phí tháng.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="page">
-
-  <!-- ROW 1: Hero + About -->
-  <div class="bento row1">
-    <div class="card hero">
-      <span class="label">Builder & Operator</span>
-      <h1>Giải pháp POS & AI<br>cho quán nhỏ</h1>
-      <p>Không phí tháng. Code riêng cho từng quán. Chạy mượt trên mọi thiết bị. Được xây từ kinh nghiệm thực tế vận hành quán Monstea.</p>
-      <div>
-        <a href="https://maichauhai.github.io/monstea-pos/" target="_blank" class="cta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Xem Demo POS
-        </a>
-      </div>
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="logo">MCH</div>
+    <div class="links">
+      <a href="#services">Dịch vụ</a>
+      <a href="#features">Tính năng</a>
+      <a href="#case">Case Study</a>
+      <a href="#pricing">Bảng giá</a>
+      <a href="#about">Về tôi</a>
     </div>
-    <div class="card about">
-      <div class="avatar">
-        <img src="assets/portrait.png" alt="Mai Châu Hải" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;border-radius:50%;background:oklch(20% 0.01 260);display:flex;align-items:center;justify-content:center;font-size:2.2rem\'>H</div>'">
-      </div>
-      <h2>Mai Châu Hải</h2>
-      <div class="role">Builder & Operator</div>
-      <div class="tagline">"Vừa code POS vừa pha trà sữa. Hiểu nỗi đau người bán hàng."</div>
+    <a href="#contact" class="nav-cta">Liên hệ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero container">
+  <div class="hero-text">
+    <span class="label">POS & AI cho F&B</span>
+    <h1>Quán nhỏ cũng xứng đáng có <em>công nghệ xịn</em></h1>
+    <p>Tôi tự code hệ thống POS cho quán trà sữa Monstea của mình. Không phí tháng, không phụ thuộc nhà cung cấp, chạy mượt trên mọi thiết bị. Giờ tôi muốn giúp bạn làm điều tương tự.</p>
+    <div class="hero-btns">
+      <a href="https://maichauhai.github.io/monstea-pos/" target="_blank" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21"/></svg>
+        Xem Demo POS
+      </a>
+      <a href="#contact" class="btn btn-secondary">Tư vấn miễn phí</a>
+    </div>
+    <div class="trust-line">
+      <span>Đang vận hành thực tế tại quán Monstea, TP.HCM</span>
     </div>
   </div>
-
-  <!-- ROW 2: Services -->
-  <div class="bento row2" style="margin-top:16px">
-    <div class="card svc svc-pos">
-      <div class="icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <h3>Monstea POS</h3>
-      <p>Quản lý bán hàng, kho nguyên liệu, nhân sự, COGS. Sync real-time giữa nhiều thiết bị. Zero phí hàng tháng.</p>
-      <span class="tag">LIVE PRODUCT</span>
-    </div>
-    <div class="card svc svc-ai">
-      <div class="icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(75% 0.12 310)" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M16 15H8a5 5 0 00-5 5v1h18v-1a5 5 0 00-5-5z"/><circle cx="18" cy="8" r="3"/></svg>
-      </div>
-      <h3>AI Automation</h3>
-      <p>Discord Bot quản lý cộng đồng, Chatbot chăm sóc khách, hệ thống cảnh báo tự động qua Telegram.</p>
-      <span class="tag">CUSTOM BUILD</span>
-    </div>
-    <div class="card svc svc-consult">
-      <div class="icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
-      <h3>Tư vấn Tech</h3>
-      <p>Tối ưu vận hành cho quán F&B. Chọn giải pháp phù hợp, không bán cái không cần.</p>
-      <span class="tag">CONSULTING</span>
+  <div class="hero-img">
+    <div class="avatar">
+      <img src="assets/portrait.png" alt="Mai Châu Hải">
     </div>
   </div>
+</section>
 
-  <!-- ROW 3: Case Study + Tech + Contact -->
-  <div class="bento row3" style="margin-top:16px">
-    <div class="card case">
-      <h3>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-warm)" stroke-width="2.5" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        Case Study: Monstea
-      </h3>
-      <div class="metrics">
-        <div class="metric">
-          <div class="val">0đ</div>
-          <div class="lbl">Phí hàng tháng (trước: 200-500k)</div>
-        </div>
-        <div class="metric">
-          <div class="val">2h/ngày</div>
-          <div class="lbl">Thời gian tiết kiệm quản lý</div>
-        </div>
-        <div class="metric">
-          <div class="val">2 thiết bị</div>
-          <div class="lbl">Sync real-time qua Firebase</div>
-        </div>
-        <div class="metric">
-          <div class="val">100%</div>
-          <div class="lbl">Offline-ready, không cần internet</div>
-        </div>
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <span class="label reveal">Vấn đề</span>
+    <h2 class="reveal">Bạn đang gặp những vấn đề này?</h2>
+    <div class="problem-grid">
+      <div class="prob-card reveal">
+        <span class="emoji">💸</span>
+        <h3>Phí POS hàng tháng quá cao</h3>
+        <p>KiotViet, Sapo tính phí 200-500k/tháng. Quán nhỏ doanh thu 10-20 triệu, phí POS ăn mất lợi nhuận.</p>
       </div>
-    </div>
-    <div class="card tech">
-      <h3>Tech Stack</h3>
-      <div class="tech-grid">
-        <span class="tech-item">JavaScript</span>
-        <span class="tech-item">Firebase</span>
-        <span class="tech-item">Node.js</span>
-        <span class="tech-item">GitHub</span>
-        <span class="tech-item">HTML/CSS</span>
-        <span class="tech-item">Discord API</span>
+      <div class="prob-card reveal">
+        <span class="emoji">😵</span>
+        <h3>Phần mềm phức tạp, nhân viên không xài</h3>
+        <p>100 tính năng nhưng chỉ dùng 5. Nhân viên part-time mất 2-3 ngày mới quen. Cuối cùng quay lại ghi sổ.</p>
       </div>
-    </div>
-    <div class="card contact">
-      <h3>Liên hệ</h3>
-      <div class="contact-links">
-        <a href="https://zalo.me/0903927115" target="_blank" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.77 1.36 5.24 3.5 6.87V22l3.93-2.16c.83.23 1.7.36 2.57.36 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
-          Zalo: 0903 927 115
-        </a>
-        <a href="#" target="_blank" class="contact-link" id="fbLink">
-          <svg viewBox="0 0 24 24" fill="oklch(65% 0.15 260)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook (sắp có)
-        </a>
+      <div class="prob-card reveal">
+        <span class="emoji">📵</span>
+        <h3>Mất mạng là mất dữ liệu</h3>
+        <p>POS cloud-only chết khi wifi lag. Khách đông mà app loading, order bị treo, mất đơn.</p>
       </div>
     </div>
   </div>
+</section>
 
-</div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <span class="label reveal">Giải pháp</span>
+    <h2 class="reveal">Tôi giúp bạn 3 việc</h2>
+    <p class="sub reveal">Không bán phần mềm có sẵn. Tôi code riêng, tối ưu cho từng quán.</p>
+    <div class="svc-grid">
+      <div class="svc-card svc-pos reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Hệ thống POS riêng cho quán bạn</h3>
+        <p>Bán hàng, quản lý kho nguyên liệu theo định mức, tính COGS tự động, chấm công nhân viên, xuất báo cáo cuối ngày. Chạy offline, sync lên cloud khi có mạng. Zero phí hàng tháng, trả 1 lần.</p>
+        <span class="tag">Live product</span>
+      </div>
+      <div class="svc-card svc-ai reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(75% 0.12 310)" stroke-width="2"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M16 15H8a5 5 0 00-5 5v1h18v-1a5 5 0 00-5-5z"/></svg></div>
+        <h3>Bot & Automation</h3>
+        <p>Discord bot quản lý cộng đồng, chatbot chăm sóc khách tự động, hệ thống cảnh báo kho qua Telegram. Giúp bạn không cần ngồi trực 24/7.</p>
+        <span class="tag">Custom build</span>
+      </div>
+      <div class="svc-card svc-consult svc-full reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Tư vấn tech cho quán F&B</h3>
+        <p>Bạn không biết nên dùng gì? Google Sheet hay POS? In bill hay không? QR menu hay menu giấy? Tôi tư vấn từ kinh nghiệm vận hành thực tế, không bán cái bạn không cần. Buổi đầu tiên miễn phí.</p>
+        <span class="tag">Consulting</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="footer">
-  &copy; 2026 Mai Châu Hải. Built with code, coffee & trà sữa.
-</div>
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <span class="label reveal">Monstea POS</span>
+    <h2 class="reveal">Những gì POS này làm được</h2>
+    <p class="sub reveal">Không phải prototype. Đang chạy thật mỗi ngày tại quán Monstea.</p>
+    <div class="feat-list">
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <h3>Bán hàng nhanh 3 giây</h3>
+          <p>Chọn món, bấm thanh toán, in bill. Giao diện tối giản, nhân viên mới học trong 5 phút. Hỗ trợ Grab order riêng, tách doanh thu rõ ràng.</p>
+        </div>
+        <div class="feat-visual"><div class="mock">Chọn món → Thanh toán → Xong<br><br>3 bước, không loading</div></div>
+      </div>
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <h3>Kho nguyên liệu thông minh</h3>
+          <p>Mỗi món bán ra, kho tự trừ nguyên liệu theo định mức. Cảnh báo khi sắp hết. Gợi ý nhập hàng tính theo tiêu thụ 7 ngày gần nhất. Ẩn nguyên liệu tạm không bán.</p>
+        </div>
+        <div class="feat-visual"><div class="mock">Bán 1 ly Trà Sữa Truyền Thống<br>→ Auto trừ: Trà 25g, Sữa 40ml, Đường 15g<br>→ Cảnh báo: Trà còn 200g (≈3 ngày)</div></div>
+      </div>
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <h3>Sync real-time, chạy offline</h3>
+          <p>Dùng Firebase Realtime Database. 2 thiết bị sync tức thì. Mất mạng? Vẫn bán hàng bình thường, data tự đồng bộ khi có mạng lại.</p>
+        </div>
+        <div class="feat-visual"><div class="mock">Thiết bị 1 (quầy) ←→ Firebase ←→ Thiết bị 2 (chủ quán)<br><br>Offline? localStorage backup tự động</div></div>
+      </div>
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <h3>Chấm công & quản lý ca</h3>
+          <p>Nhân viên check-in/check-out bằng mã riêng. Tính lương theo giờ tự động. Lịch ca tuần hiển thị trực quan.</p>
+        </div>
+        <div class="feat-visual"><div class="mock">Ca sáng: 8h-14h → An, Bình<br>Ca chiều: 14h-22h → Chi, Dung<br><br>Tổng giờ tuần này: An 42h = 1,050,000đ</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- CASE STUDY -->
+<section id="case">
+  <div class="container">
+    <span class="label reveal">Bằng chứng</span>
+    <h2 class="reveal">Case Study: Quán Monstea</h2>
+    <p class="sub reveal">Tôi không bán lý thuyết. Đây là kết quả thực tế từ chính quán của tôi.</p>
+    <div class="case-card reveal">
+      <div class="case-header">
+        <span class="badge">Monstea</span>
+        <h3>Từ ghi sổ tay → POS tự code trong 2 tuần</h3>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="val">0đ</div><div class="lbl">Phí hàng tháng<br>(trước: 300k/tháng)</div></div>
+        <div class="case-metric"><div class="val">2h</div><div class="lbl">Tiết kiệm mỗi ngày<br>quản lý kho + sổ sách</div></div>
+        <div class="case-metric"><div class="val">2</div><div class="lbl">Thiết bị sync<br>real-time qua cloud</div></div>
+        <div class="case-metric"><div class="val">5 phút</div><div class="lbl">Nhân viên mới<br>học xong cách dùng</div></div>
+      </div>
+      <div class="case-story">
+        <div class="case-col case-before">
+          <h4>Trước</h4>
+          <ul>
+            <li>Ghi sổ tay, cuối ngày ngồi cộng</li>
+            <li>Không biết tồn kho, hay hết NL bất ngờ</li>
+            <li>Mỗi máy một data, phải nhắn Zalo hỏi</li>
+            <li>Trả phí POS 300k/tháng cho tính năng không dùng</li>
+          </ul>
+        </div>
+        <div class="case-col case-after">
+          <h4>Sau</h4>
+          <ul>
+            <li>Doanh thu tự tổng hợp, báo cáo cuối ngày 1 click</li>
+            <li>Cảnh báo hết NL, gợi ý nhập hàng thông minh</li>
+            <li>Sync 2 thiết bị tức thì, chủ quán xem từ xa</li>
+            <li>Zero phí tháng, toàn quyền sở hữu code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <span class="label reveal">Bảng giá</span>
+    <h2 class="reveal">Đầu tư một lần, dùng mãi mãi</h2>
+    <p class="sub reveal">Không phí ẩn. Không lock-in. Không subscription.</p>
+    <div class="price-grid reveal">
+      <div class="price-card">
+        <h3>Tư vấn Tech</h3>
+        <div class="price">Miễn phí</div>
+        <div class="note">Buổi đầu tiên, 30 phút</div>
+        <ul>
+          <li>Đánh giá quy trình hiện tại</li>
+          <li>Gợi ý giải pháp phù hợp</li>
+          <li>Báo giá chi tiết nếu cần triển khai</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Đặt lịch tư vấn</a>
+      </div>
+      <div class="price-card featured">
+        <h3>POS Setup trọn gói</h3>
+        <div class="price">3,000,000đ <span>/ 1 lần</span></div>
+        <div class="note">Tùy chỉnh theo quán của bạn</div>
+        <ul>
+          <li>Customize menu, kho NL, nhân sự</li>
+          <li>Setup Firebase sync + deploy</li>
+          <li>Hướng dẫn sử dụng 1-1</li>
+          <li>Hỗ trợ 30 ngày sau setup</li>
+          <li>Toàn quyền sở hữu source code</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Liên hệ ngay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <span class="label reveal">Về tôi</span>
+    <h2 class="reveal">Người code POS cũng là người pha trà sữa</h2>
+    <div class="about-row reveal">
+      <div class="about-img">
+        <div class="avatar">
+          <img src="assets/portrait.png" alt="Mai Châu Hải">
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Mai Châu Hải</h3>
+        <p>Tôi vận hành quán trà sữa Monstea ở TP.HCM. Khi thấy các phần mềm POS trên thị trường vừa đắt vừa phức tạp, tôi quyết định tự code một hệ thống phù hợp với quán mình.</p>
+        <p>Kết quả? Một hệ thống POS nhẹ, nhanh, chạy offline, sync real-time, và hoàn toàn miễn phí. Giờ tôi muốn chia sẻ giải pháp này cho những người làm F&B quy mô nhỏ như tôi.</p>
+        <div class="about-tags">
+          <span>JavaScript</span><span>Firebase</span><span>Node.js</span>
+          <span>Discord API</span><span>AI Automation</span><span>F&B Operations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <h2 class="reveal">Sẵn sàng nâng cấp quán của bạn?</h2>
+    <p class="reveal">Buổi tư vấn đầu tiên miễn phí. Không cam kết, không ràng buộc.</p>
+    <div class="contact-row reveal">
+      <a href="https://zalo.me/0903927115" target="_blank" class="contact-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.77 1.36 5.24 3.5 6.87V22l3.93-2.16c.83.23 1.7.36 2.57.36 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
+        Zalo: 0903 927 115
+      </a>
+      <a href="tel:0903927115" class="contact-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Gọi: 0903 927 115
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; 2026 Mai Châu Hải. Built with code, coffee & trà sữa.</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>

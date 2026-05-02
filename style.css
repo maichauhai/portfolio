@@ -53,17 +53,21 @@ nav .links a:hover{color:var(--text1)}
 .prob-card p{font-size:0.8rem;color:var(--text2);line-height:1.6}
 
 /* SERVICES */
-.svc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:32px}
-.svc-card{padding:32px;border-radius:var(--radius);background:var(--bg2);border:1px solid var(--border);transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),background 0.25s}
+.svc-group{margin-top:32px;padding:28px;border-radius:var(--radius);background:var(--bg2);border:1px solid var(--border)}
+.svc-group+.svc-group{margin-top:16px}
+.svc-group-title{font-size:0.92rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px;color:var(--text1)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc-card{padding:24px;border-radius:12px;background:var(--bg);border:1px solid var(--border);transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),background 0.25s}
 .svc-card:hover{transform:translateY(-2px);background:var(--bg3)}
-.svc-card .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem}
-.svc-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
-.svc-card p{font-size:0.82rem;color:var(--text2);line-height:1.7;max-width:45ch}
-.svc-card .tag{display:inline-block;font-size:0.62rem;font-weight:700;padding:4px 10px;border-radius:6px;margin-top:14px;letter-spacing:0.05em;text-transform:uppercase}
-.svc-pos .icon{background:oklch(25% 0.06 195)}.svc-pos .tag{background:oklch(25% 0.06 195);color:var(--accent)}
-.svc-ai .icon{background:oklch(25% 0.06 310)}.svc-ai .tag{background:oklch(25% 0.06 310);color:oklch(75% 0.12 310)}
-.svc-consult .icon{background:oklch(25% 0.06 75)}.svc-consult .tag{background:oklch(25% 0.06 75);color:var(--accent2)}
-.svc-full{grid-column:1/-1}
+.svc-card h4{font-size:0.92rem;font-weight:700;margin-bottom:6px}
+.svc-card p{font-size:0.78rem;color:var(--text2);line-height:1.6}
+.svc-card .tag{display:inline-block;font-size:0.6rem;font-weight:700;padding:3px 8px;border-radius:6px;margin-top:12px;letter-spacing:0.04em;text-transform:uppercase}
+.svc-pos .tag{background:oklch(25% 0.06 195);color:var(--accent)}
+.svc-ai .tag{background:oklch(25% 0.06 310);color:oklch(75% 0.12 310)}
+.svc-consult .tag{background:oklch(25% 0.06 75);color:var(--accent2)}
+.svc-bot .tag{background:oklch(25% 0.06 270);color:oklch(72% 0.12 270)}
+.svc-chatbot .tag{background:oklch(25% 0.06 310);color:oklch(75% 0.12 310)}
+.svc-auto .tag{background:oklch(25% 0.06 150);color:oklch(70% 0.12 150)}
 
 /* FEATURES */
 .features{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -144,6 +148,7 @@ footer{text-align:center;padding:24px 20px;font-size:0.7rem;color:var(--text3);b
   .trust-line{justify-content:center}
   .problem-grid{grid-template-columns:1fr}
   .svc-grid{grid-template-columns:1fr}
+  .svc-group{padding:20px}
   .feat-row,.feat-row:nth-child(even){flex-direction:column}
   .case-metrics{grid-template-columns:1fr 1fr}
   .case-story{grid-template-columns:1fr}

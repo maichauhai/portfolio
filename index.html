@@ -140,13 +140,17 @@ a{color:var(--accent);text-decoration:none}
   .hero h1{font-size:1.5rem}
   .metrics{grid-template-columns:1fr 1fr}
   .page{padding:24px 14px 40px}
+  .about{flex-direction:row;gap:16px;text-align:left}
+  .about .avatar{width:70px;height:70px;margin-bottom:0;flex-shrink:0}
+  .about .tagline{max-width:100%}
 }
 @media(min-width:769px) and (max-width:1024px){
   .row1{grid-template-columns:1.5fr 1fr}
-  .row2{grid-template-columns:1fr 1fr}
-  .row2 .svc:nth-child(3){grid-column:1/-1}
+  .row2{grid-template-columns:1fr 1fr 1fr}
   .row3{grid-template-columns:1fr 1fr}
   .row3 .contact{grid-column:1/-1}
+  .card{padding:24px}
+  .about .tagline{max-width:100%}
 }
 
 /* ── ENTRANCE ANIMATIONS ── */

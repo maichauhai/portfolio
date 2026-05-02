@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mai Châu Hải — POS & AI cho quán nhỏ</title>
+<meta name="description" content="Giải pháp POS tự code, AI automation, tư vấn tech cho quán F&B nhỏ. Không phí tháng, chạy mọi thiết bị.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:oklch(12% 0.008 260);
+  --bg-card:oklch(16% 0.006 260);
+  --bg-card-hover:oklch(19% 0.008 260);
+  --text-1:oklch(95% 0.005 260);
+  --text-2:oklch(70% 0.01 260);
+  --text-3:oklch(50% 0.008 260);
+  --accent:oklch(72% 0.14 195);
+  --accent-warm:oklch(75% 0.15 75);
+  --border:oklch(22% 0.008 260);
+  --radius:16px;
+  --font:'Plus Jakarta Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--text-1);
+  line-height:1.6;letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none}
+
+.page{max-width:1100px;margin:0 auto;padding:40px 20px 60px}
+.bento{display:grid;gap:16px}
+
+/* Row 1: hero 2fr + about 1fr */
+.row1{grid-template-columns:2fr 1fr}
+/* Row 2: 3 services — NOT 3 equal cards, use slight asymmetry */
+.row2{grid-template-columns:1.1fr 1fr 0.9fr}
+/* Row 3: case 1.4fr + tech 0.8fr + contact 0.8fr */
+.row3{grid-template-columns:1.4fr 0.8fr 0.8fr}
+
+.card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:32px;
+  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),background 0.25s ease;
+  position:relative;overflow:hidden;
+}
+.card:hover{background:var(--bg-card-hover);transform:translateY(-2px)}
+.card:active{transform:translateY(0) scale(0.995)}
+
+/* ── HERO ── */
+.hero{display:flex;flex-direction:column;justify-content:center;min-height:280px}
+.hero .label{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+.hero h1{
+  font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.15;
+  text-wrap:balance;margin-bottom:12px;
+}
+.hero p{font-size:0.95rem;color:var(--text-2);max-width:50ch;margin-bottom:24px;line-height:1.7}
+.hero .cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:oklch(15% 0.01 260);
+  padding:12px 28px;border-radius:10px;font-weight:700;font-size:0.88rem;
+  border:none;cursor:pointer;transition:transform 0.15s ease,opacity 0.15s ease;
+}
+.cta:hover{opacity:0.9;transform:translateY(-1px)}
+.cta:active{transform:scale(0.97)}
+.cta svg{width:18px;height:18px}
+
+/* ── ABOUT ── */
+.about{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.about .avatar{
+  width:110px;height:110px;border-radius:50%;
+  background:linear-gradient(135deg,oklch(60% 0.12 75),oklch(50% 0.1 195));
+  padding:3px;margin-bottom:16px;
+}
+.about .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.about h2{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.about .role{font-size:0.78rem;color:var(--text-3);font-weight:500;margin-bottom:12px}
+.about .tagline{font-size:0.82rem;color:var(--text-2);font-style:italic;max-width:22ch}
+
+/* ── SERVICE CARDS ── */
+.svc .icon{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;font-size:1.3rem;
+}
+.svc h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.svc p{font-size:0.82rem;color:var(--text-2);line-height:1.6}
+.svc .tag{
+  display:inline-block;font-size:0.65rem;font-weight:600;
+  padding:3px 8px;border-radius:6px;margin-top:12px;letter-spacing:0.03em;
+}
+.svc-pos .icon{background:oklch(30% 0.06 195)}
+.svc-pos .tag{background:oklch(30% 0.06 195);color:var(--accent)}
+.svc-ai .icon{background:oklch(30% 0.06 310)}
+.svc-ai .tag{background:oklch(30% 0.06 310);color:oklch(75% 0.12 310)}
+.svc-consult .icon{background:oklch(30% 0.06 75)}
+.svc-consult .tag{background:oklch(30% 0.06 75);color:var(--accent-warm)}
+
+/* ── CASE STUDY ── */
+.case h3{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.metric{padding:14px;border-radius:10px;background:oklch(14% 0.005 260)}
+.metric .val{font-size:1.3rem;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.metric .lbl{font-size:0.72rem;color:var(--text-3);margin-top:2px}
+
+/* ── TECH ── */
+.tech{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.tech h3{font-size:0.85rem;font-weight:600;color:var(--text-3);margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase}
+.tech-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tech-item{
+  padding:8px 14px;border-radius:8px;background:oklch(14% 0.005 260);
+  font-size:0.78rem;font-weight:600;color:var(--text-2);
+  border:1px solid var(--border);
+}
+
+/* ── CONTACT ── */
+.contact{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.contact h3{font-size:0.85rem;font-weight:600;color:var(--text-3);margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase}
+.contact-links{display:flex;flex-direction:column;gap:10px;width:100%}
+.contact-link{
+  display:flex;align-items:center;gap:10px;padding:12px 16px;
+  border-radius:10px;background:oklch(14% 0.005 260);border:1px solid var(--border);
+  font-size:0.85rem;font-weight:600;color:var(--text-1);
+  transition:background 0.2s ease;cursor:pointer;
+}
+.contact-link:hover{background:oklch(18% 0.008 260)}
+.contact-link svg{width:18px;height:18px;flex-shrink:0}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:32px 20px 16px;font-size:0.72rem;color:var(--text-3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .row1,.row2,.row3{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .hero h1{font-size:1.5rem}
+  .metrics{grid-template-columns:1fr 1fr}
+  .page{padding:24px 14px 40px}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .row1{grid-template-columns:1.5fr 1fr}
+  .row2{grid-template-columns:1fr 1fr}
+  .row2 .svc:nth-child(3){grid-column:1/-1}
+  .row3{grid-template-columns:1fr 1fr}
+  .row3 .contact{grid-column:1/-1}
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+.card{opacity:0;transform:translateY(20px);animation:cardIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+.row1 .card:nth-child(1){animation-delay:0.05s}
+.row1 .card:nth-child(2){animation-delay:0.1s}
+.row2 .card:nth-child(1){animation-delay:0.15s}
+.row2 .card:nth-child(2){animation-delay:0.2s}
+.row2 .card:nth-child(3){animation-delay:0.25s}
+.row3 .card:nth-child(1){animation-delay:0.3s}
+.row3 .card:nth-child(2){animation-delay:0.35s}
+.row3 .card:nth-child(3){animation-delay:0.4s}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ROW 1: Hero + About -->
+  <div class="bento row1">
+    <div class="card hero">
+      <span class="label">Builder & Operator</span>
+      <h1>Giải pháp POS & AI<br>cho quán nhỏ</h1>
+      <p>Không phí tháng. Code riêng cho từng quán. Chạy mượt trên mọi thiết bị. Được xây từ kinh nghiệm thực tế vận hành quán Monstea.</p>
+      <div>
+        <a href="https://maichauhai.github.io/monstea-pos/" target="_blank" class="cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Xem Demo POS
+        </a>
+      </div>
+    </div>
+    <div class="card about">
+      <div class="avatar">
+        <img src="assets/portrait.png" alt="Mai Châu Hải" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;border-radius:50%;background:oklch(20% 0.01 260);display:flex;align-items:center;justify-content:center;font-size:2.2rem\'>H</div>'">
+      </div>
+      <h2>Mai Châu Hải</h2>
+      <div class="role">Builder & Operator</div>
+      <div class="tagline">"Vừa code POS vừa pha trà sữa. Hiểu nỗi đau người bán hàng."</div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Services -->
+  <div class="bento row2" style="margin-top:16px">
+    <div class="card svc svc-pos">
+      <div class="icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Monstea POS</h3>
+      <p>Quản lý bán hàng, kho nguyên liệu, nhân sự, COGS. Sync real-time giữa nhiều thiết bị. Zero phí hàng tháng.</p>
+      <span class="tag">LIVE PRODUCT</span>
+    </div>
+    <div class="card svc svc-ai">
+      <div class="icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(75% 0.12 310)" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M16 15H8a5 5 0 00-5 5v1h18v-1a5 5 0 00-5-5z"/><circle cx="18" cy="8" r="3"/></svg>
+      </div>
+      <h3>AI Automation</h3>
+      <p>Discord Bot quản lý cộng đồng, Chatbot chăm sóc khách, hệ thống cảnh báo tự động qua Telegram.</p>
+      <span class="tag">CUSTOM BUILD</span>
+    </div>
+    <div class="card svc svc-consult">
+      <div class="icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h3>Tư vấn Tech</h3>
+      <p>Tối ưu vận hành cho quán F&B. Chọn giải pháp phù hợp, không bán cái không cần.</p>
+      <span class="tag">CONSULTING</span>
+    </div>
+  </div>
+
+  <!-- ROW 3: Case Study + Tech + Contact -->
+  <div class="bento row3" style="margin-top:16px">
+    <div class="card case">
+      <h3>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-warm)" stroke-width="2.5" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Case Study: Monstea
+      </h3>
+      <div class="metrics">
+        <div class="metric">
+          <div class="val">0đ</div>
+          <div class="lbl">Phí hàng tháng (trước: 200-500k)</div>
+        </div>
+        <div class="metric">
+          <div class="val">2h/ngày</div>
+          <div class="lbl">Thời gian tiết kiệm quản lý</div>
+        </div>
+        <div class="metric">
+          <div class="val">2 thiết bị</div>
+          <div class="lbl">Sync real-time qua Firebase</div>
+        </div>
+        <div class="metric">
+          <div class="val">100%</div>
+          <div class="lbl">Offline-ready, không cần internet</div>
+        </div>
+      </div>
+    </div>
+    <div class="card tech">
+      <h3>Tech Stack</h3>
+      <div class="tech-grid">
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">Firebase</span>
+        <span class="tech-item">Node.js</span>
+        <span class="tech-item">GitHub</span>
+        <span class="tech-item">HTML/CSS</span>
+        <span class="tech-item">Discord API</span>
+      </div>
+    </div>
+    <div class="card contact">
+      <h3>Liên hệ</h3>
+      <div class="contact-links">
+        <a href="https://zalo.me/0903927115" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.77 1.36 5.24 3.5 6.87V22l3.93-2.16c.83.23 1.7.36 2.57.36 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
+          Zalo: 0903 927 115
+        </a>
+        <a href="#" target="_blank" class="contact-link" id="fbLink">
+          <svg viewBox="0 0 24 24" fill="oklch(65% 0.15 260)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook (sắp có)
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  &copy; 2026 Mai Châu Hải. Built with code, coffee & trà sữa.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Hub - Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #1c1412;
+      color: #f5ede8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: 30%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(245,158,11,.07), transparent 65%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      right: -10%;
+      bottom: -30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(239,68,68,.06), transparent 65%);
+      pointer-events: none;
+    }
+
+    .app {
+      position: relative;
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr) 300px;
+      grid-template-rows: 72px 1fr;
+      grid-template-areas:
+        "sidebar topbar topbar"
+        "sidebar main right";
+      height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      grid-area: topbar;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 32px;
+      background: rgba(255,255,255,.02);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(245,158,11,.1);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .search {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 10px 16px;
+      color: #a89890;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .search:focus-within {
+      border-color: rgba(245,158,11,.45);
+      box-shadow: 0 0 22px rgba(245,158,11,.1);
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #f5ede8;
+      font-size: 14px;
+    }
+
+    .search input::placeholder {
+      color: #7a6a62;
+    }
+
+    .topbar-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .bell {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      color: #fbbf24;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .bell:hover {
+      border-color: rgba(245,158,11,.4);
+      box-shadow: 0 0 16px rgba(245,158,11,.15);
+    }
+
+    .bell .badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 10px rgba(239,68,68,.8);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #1c1412;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(239,68,68,.2);
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      padding: 28px 20px;
+      background: rgba(10,8,8,.42);
+      border-right: 1px solid rgba(245,158,11,.1);
+    }
+
+    .brand-block {
+      margin-bottom: 36px;
+    }
+
+    .brand-block p {
+      margin-top: 4px;
+      color: #8a7a72;
+      font-size: 13px;
+    }
+
+    .side-label {
+      margin: 24px 10px 10px;
+      color: #7a6a62;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 14px;
+      margin-bottom: 6px;
+      color: #a89890;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,.04);
+      color: #f5ede8;
+    }
+
+    .nav-item.active {
+      color: #fbbf24;
+      background: linear-gradient(90deg, rgba(245,158,11,.14), rgba(245,158,11,.03));
+    }
+
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      border-radius: 999px;
+      background: #f59e0b;
+      box-shadow: 0 0 12px rgba(245,158,11,.7);
+    }
+
+    .main {
+      grid-area: main;
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    .right {
+      grid-area: right;
+      padding: 32px 24px;
+      overflow-y: auto;
+      border-left: 1px solid rgba(245,158,11,.08);
+      background: rgba(255,255,255,.015);
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .page-sub {
+      margin-bottom: 28px;
+      color: #8a7a72;
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 130px;
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      transition: .3s;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -50px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(245,158,11,.08);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245,158,11,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 13px;
+      background: rgba(245,158,11,.13);
+      color: #fbbf24;
+    }
+
+    .stat-label {
+      margin-bottom: 6px;
+      color: #9a8a80;
+      font-size: 13px;
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .stat-value small {
+      color: #c5b5ac;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .panel {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 22px;
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+
+    .panel + .panel {
+      margin-top: 18px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .panel-head h3 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .view-all {
+      color: #fbbf24;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .view-all:hover {
+      text-shadow: 0 0 12px rgba(245,158,11,.6);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      color: #7a6a62;
+      font-size: 11px;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    td {
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      font-size: 14px;
+    }
+
+    tbody tr {
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    tbody tr:hover {
+      background: linear-gradient(90deg, rgba(245,158,11,.07), rgba(245,158,11,.015));
+      box-shadow: inset 3px 0 0 #f59e0b;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .order-id {
+      color: #fbbf24;
+      font-family: "SF Mono", Consolas, monospace;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .customer .dot {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(245,158,11,.14);
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .money {
+      font-weight: 700;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    .status.done {
+      color: #34d399;
+      background: rgba(52,211,153,.1);
+      border: 1px solid rgba(52,211,153,.3);
+      box-shadow: 0 0 14px rgba(52,211,153,.12);
+    }
+
+    .status.processing {
+      color: #fbbf24;
+      background: rgba(251,191,36,.1);
+      border: 1px solid rgba(251,191,36,.3);
+      box-shadow: 0 0 14px rgba(251,191,36,.12);
+    }
+
+    .status.cancelled {
+      color: #f87171;
+      background: rgba(248,113,113,.1);
+      border: 1px solid rgba(248,113,113,.3);
+      box-shadow: 0 0 14px rgba(248,113,113,.12);
+    }
+
+    .right-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 16px;
+    }
+
+    .right-card h4 {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .progress {
+      height: 9px;
+      overflow: hidden;
+      margin: 12px 0 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      color: #c5b5ac;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border: 1px solid rgba(245,158,11,.18);
+      border-radius: 999px;
+      background: rgba(245,158,11,.08);
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1100px) {
+      .app {
+        grid-template-columns: 88px minmax(0, 1fr);
+        grid-template-areas:
+          "sidebar topbar"
+          "sidebar main";
+      }
+
+      .right {
+        display: none;
+      }
+
+      .nav-item span,
+      .side-label,
+      .brand-block p {
+        display: none;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        display: block;
+        height: auto;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        padding: 16px;
+      }
+
+      .search {
+        display: none;
+      }
+
+      .main {
+        padding: 20px 14px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="logo">Retail Hub</div>
+        <p>Operations dashboard</p>
+      </div>
+
+      <div class="side-label">Menu</div>
+      <div class="nav-item active">▣ <span>Dashboard</span></div>
+      <div class="nav-item">▤ <span>Orders</span></div>
+      <div class="nav-item">◈ <span>Inventory</span></div>
+      <div class="nav-item">◇ <span>Customers</span></div>
+
+      <div class="side-label">Business</div>
+      <div class="nav-item">◉ <span>Analytics</span></div>
+      <div class="nav-item">⚙ <span>Settings</span></div>
+    </aside>
+
+    <header class="topbar">
+      <div class="logo">Retail Hub</div>
+      <label class="search">
+        🔎
+        <input type="search" placeholder="Search order, customer, product...">
+      </label>
+      <div class="topbar-right">
+        <div class="bell">🔔<span class="badge"></span></div>
+        <div class="avatar">RH</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-sub">Today overview, live orders and revenue health.</p>
+
+      <section class="stats">
+        <article class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-label">Revenue today</div>
+          <div class="stat-value">12.8M <small>VND</small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon">🧾</div>
+          <div class="stat-label">Orders</div>
+          <div class="stat-value">148</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-label">Low stock</div>
+          <div class="stat-value">7</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-label">Avg. serve time</div>
+          <div class="stat-value">6.2 <small>min</small></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h3>Recent orders</h3>
+          <span class="view-all">View all</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="order-id">#RH-1024</td>
+              <td><div class="customer"><span class="dot">AN</span>An Nguyen</div></td>
+              <td class="money">185,000d</td>
+              <td><span class="status done">Done</span></td>
+            </tr>
+            <tr>
+              <td class="order-id">#RH-1025</td>
+              <td><div class="customer"><span class="dot">MT</span>Minh Tran</div></td>
+              <td class="money">92,000d</td>
+              <td><span class="status processing">Processing</span></td>
+            </tr>
+            <tr>
+              <td class="order-id">#RH-1026</td>
+              <td><div class="customer"><span class="dot">LH</span>Lan Hoang</div></td>
+              <td class="money">240,000d</td>
+              <td><span class="status done">Done</span></td>
+            </tr>
+            <tr>
+              <td class="order-id">#RH-1027</td>
+              <td><div class="customer"><span class="dot">PQ</span>Phuong Quach</div></td>
+              <td class="money">58,000d</td>
+              <td><span class="status cancelled">Cancelled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <aside class="right">
+      <div class="right-card">
+        <h4>Daily target</h4>
+        <div class="progress"><span style="width: 72%"></span></div>
+        <p class="page-sub">72% completed. Keep pushing high-margin combos.</p>
+        <div class="tag-row">
+          <span class="tag">Upsell</span>
+          <span class="tag">Combo</span>
+          <span class="tag">Loyalty</span>
+        </div>
+      </div>
+
+      <div class="right-card">
+        <h4>Action queue</h4>
+        <div class="mini-list">
+          <p>• Refill top 3 selling products before 18:00.</p>
+          <p>• Call supplier for tomorrow stock.</p>
+          <p>• Review cancelled orders after closing.</p>
+        </div>
+      </div>
+
+      <div class="right-card">
+        <h4>Notes</h4>
+        <div class="mini-list">
+          <p>Peak time is expected around 19:00 - 21:00.</p>
+          <p>Prepare extra packaging and topping inventory.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

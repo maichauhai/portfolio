@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monstea POS — Case Study | Zak</title>
+  <meta name="description" content="Hệ thống POS quán trà sữa: từ ghi tay đến tự động hóa. Giảm 95% sai sót, tốc độ 30s/đơn, chi phí 0đ/tháng.">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <!-- Mini Nav -->
+  <header class="case-nav">
+    <a href="index.html#portfolio" class="case-back">← Về Portfolio</a>
+    <span class="case-nav-title">Monstea POS</span>
+    <a href="#" class="btn primary small">Live Demo →</a>
+  </header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="case-hero" style="--hero-accent: #059669">
+      <div class="case-hero-bg">
+        <img src="assets/monstea-pos.png" alt="" aria-hidden="true">
+      </div>
+      <div class="case-hero-content">
+        <div class="case-hero-tags">
+          <span>Firebase</span><span>PWA</span><span>Vanilla JS</span><span>Realtime</span>
+        </div>
+        <h1>Monstea POS</h1>
+        <p class="case-hero-sub">Hệ thống quản lý quán trà sữa — từ ghi tay đến tự động hóa</p>
+        <div class="case-hero-stats">
+          <div><strong>30s</strong><span>Tốc độ/đơn</span></div>
+          <div><strong>-95%</strong><span>Sai sót</span></div>
+          <div><strong>0đ</strong><span>Phí/tháng</span></div>
+          <div><strong>10 phút</strong><span>Đào tạo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Vấn đề -->
+    <section class="case-section light-section">
+      <div class="container case-two-col">
+        <div class="case-label">
+          <span class="case-number problem">01</span>
+          <h2>Vấn Đề</h2>
+          <div class="case-underline problem"></div>
+        </div>
+        <div class="case-body">
+          <p class="case-text-lg">Quán trà sữa nhỏ, nhân viên ghi order bằng tay. Cuối ngày tính tiền sai sót. Không biết món nào bán chạy. Không theo dõi được nguyên liệu tồn kho.</p>
+          <div class="pain-points">
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>60% thời gian lãng phí ở bước tính tiền thủ công</p>
+            </div>
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>Không có dữ liệu bán hàng → quyết định bằng cảm tính</p>
+            </div>
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>Nguyên liệu hết bất ngờ → phải đóng menu giữa ngày</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Tư duy giải quyết -->
+    <section class="case-section light-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">02</span>
+          <h2>Tư Duy Giải Quyết</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="thinking-steps">
+          <article class="think-card">
+            <div class="think-num">1</div>
+            <h3>Quan sát quy trình</h3>
+            <p>Ngồi tại quán 3 ngày, phát hiện 60% thời gian lãng phí ở bước tính tiền. Bottleneck không phải pha chế — mà là ghi order và thu tiền.</p>
+          </article>
+          <div class="think-line"></div>
+          <article class="think-card">
+            <div class="think-num">2</div>
+            <h3>Chọn công nghệ</h3>
+            <p>So sánh Firebase (miễn phí, realtime) vs Server truyền thống (500k/tháng, cần DevOps). Chọn Firebase vì quán nhỏ cần chi phí thấp nhất.</p>
+            <div class="compare-mini">
+              <span class="win">✓ Firebase — Free</span>
+              <span class="lose">✗ Server — 500k/th</span>
+            </div>
+          </article>
+          <div class="think-line"></div>
+          <article class="think-card">
+            <div class="think-num">3</div>
+            <h3>Thiết kế trước, code sau</h3>
+            <p>Tạo mockup trước, để chủ quán duyệt quy trình trên giao diện giả. Khi đã ổn mới bắt tay code. Không mất tiền oan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Giải pháp -->
+    <section class="case-section dark-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">03</span>
+          <h2>Giải Pháp</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="solution-showcase">
+          <div class="browser-frame">
+            <div class="browser-bar-lg">
+              <span></span><span></span><span></span>
+              <em>monstea-pos.zaklife.com</em>
+            </div>
+            <img src="assets/monstea-pos.png" alt="Monstea POS Dashboard — giao diện thật đang chạy">
+          </div>
+          <div class="solution-cta">
+            <a href="#" class="btn primary">Xem Live Demo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Tại sao chọn cách này -->
+    <section class="case-section light-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">04</span>
+          <h2>Tại Sao Chọn Cách Này?</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="why-icon">JS</div>
+            <h3>Vanilla JS</h3>
+            <p>Không dependency, load nhanh, chạy được trên máy cũ. Bundle nhỏ, dễ maintain.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">🔥</div>
+            <h3>Firebase RTDB</h3>
+            <p>Miễn phí cho quán nhỏ, realtime sync giữa các thiết bị, hoạt động offline.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">🚀</div>
+            <h3>GitHub Pages</h3>
+            <p>Deploy 0đ/tháng, tự động cập nhật từ repo. Không cần quản lý server.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Project -->
+    <a href="case-zaklife.html" class="next-project dark-section">
+      <div class="container next-project-inner">
+        <div class="next-label">Dự án tiếp theo</div>
+        <div class="next-info">
+          <h3>ZakLife Dashboard →</h3>
+          <p>Quản lý cuộc sống cá nhân toàn diện</p>
+        </div>
+      </div>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Zak — AI-Powered Solutions</p>
+    <p>Ho Chi Minh City, Vietnam</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZakLife Dashboard — Case Study | Zak</title>
+  <meta name="description" content="Dashboard quản lý cuộc sống cá nhân toàn diện: 9 modules, habit tracker, journal, tasks. Thay thế 4 app riêng lẻ.">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <header class="case-nav">
+    <a href="index.html#portfolio" class="case-back">← Về Portfolio</a>
+    <span class="case-nav-title">ZakLife Dashboard</span>
+    <a href="#" class="btn primary small">Live Demo →</a>
+  </header>
+
+  <main>
+    <section class="case-hero" style="--hero-accent: #059669">
+      <div class="case-hero-bg">
+        <img src="assets/zaklife-dashboard.png" alt="" aria-hidden="true">
+      </div>
+      <div class="case-hero-content">
+        <div class="case-hero-tags">
+          <span>Firebase</span><span>Vanilla JS</span><span>GitHub Pages</span><span>RTDB</span>
+        </div>
+        <h1>ZakLife Dashboard</h1>
+        <p class="case-hero-sub">Quản lý cuộc sống cá nhân toàn diện — gom mọi thứ vào 1 nơi</p>
+        <div class="case-hero-stats">
+          <div><strong>9</strong><span>Modules</span></div>
+          <div><strong>4 app</strong><span>Được thay thế</span></div>
+          <div><strong>0đ</strong><span>Chi phí deploy</span></div>
+          <div><strong>Realtime</strong><span>Sync xuyên thiết bị</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section light-section">
+      <div class="container case-two-col">
+        <div class="case-label">
+          <span class="case-number problem">01</span>
+          <h2>Vấn Đề</h2>
+          <div class="case-underline problem"></div>
+        </div>
+        <div class="case-body">
+          <p class="case-text-lg">Habit tracker ở 1 app, journal ở app khác, task list ở Notion, vault riêng tư ở Google Keep. Không có cái nhìn tổng thể về cuộc sống hàng ngày.</p>
+          <div class="pain-points">
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>Dữ liệu phân tán qua 4+ ứng dụng khác nhau</p>
+            </div>
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>Không thể nhìn tổng quan: mood, habit, task trong 1 màn hình</p>
+            </div>
+            <div class="pain-card">
+              <span class="pain-dot"></span>
+              <p>Mất thời gian chuyển đổi giữa các app mỗi ngày</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section light-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">02</span>
+          <h2>Tư Duy Giải Quyết</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="thinking-steps">
+          <article class="think-card">
+            <div class="think-num">1</div>
+            <h3>Gom tất cả vào 1 dashboard</h3>
+            <p>Thay vì 4 app riêng lẻ, thiết kế 1 dashboard duy nhất với sidebar module. Mở 1 trang = thấy mọi thứ.</p>
+          </article>
+          <div class="think-line"></div>
+          <article class="think-card">
+            <div class="think-num">2</div>
+            <h3>Chia module rõ ràng</h3>
+            <p>9 modules độc lập: Dashboard, POS, Content, Trading, Journal, Tasks, Quick Dock, Vault, Settings. Thêm/bớt module không làm vỡ dữ liệu.</p>
+          </article>
+          <div class="think-line"></div>
+          <article class="think-card">
+            <div class="think-num">3</div>
+            <h3>Firebase RTDB để sync</h3>
+            <p>Dùng trên laptop ở nhà, tablet ở quán, điện thoại ngoài đường — data luôn đồng bộ realtime.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">03</span>
+          <h2>Giải Pháp</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="solution-showcase">
+          <div class="browser-frame">
+            <div class="browser-bar-lg">
+              <span></span><span></span><span></span>
+              <em>zaklife.github.io</em>
+            </div>
+            <img src="assets/zaklife-dashboard.png" alt="ZakLife Dashboard — giao diện thật đang chạy">
+          </div>
+          <div class="solution-cta">
+            <a href="#" class="btn primary">Xem Live Demo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section light-section">
+      <div class="container">
+        <div class="case-label center">
+          <span class="case-number">04</span>
+          <h2>Tại Sao Chọn Cách Này?</h2>
+          <div class="case-underline"></div>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="why-icon">JS</div>
+            <h3>Vanilla JS</h3>
+            <p>Giữ bundle nhỏ, load nhanh, không dependency hell. Kiểm soát 100% code.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">🔥</div>
+            <h3>Firebase RTDB</h3>
+            <p>Free tier đủ dùng cho cá nhân. Data sync xuyên thiết bị trong 1 giây.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">📦</div>
+            <h3>Module Architecture</h3>
+            <p>Mỗi module là 1 file JS riêng. Thêm module mới = thêm 1 file, không sửa code cũ.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <a href="case-content.html" class="next-project dark-section">
+      <div class="container next-project-inner">
+        <div class="next-label">Dự án tiếp theo</div>
+        <div class="next-info">
+          <h3>Content Auto-Post →</h3>
+          <p>Tự động đăng bài fanpage qua n8n</p>
+        </div>
+      </div>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Zak — AI-Powered Solutions</p>
+    <p>Ho Chi Minh City, Vietnam</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,341 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mai Châu Hải — Web, AI Automation & Marketing System</title>
-<meta name="description" content="Xây web, AI automation và hệ thống marketing thực dụng cho doanh nghiệp nhỏ hoặc dự án kinh doanh mới. Làm thử nhỏ, đo kết quả, rồi mở rộng.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mai Châu Hải - AI Workflow & Web Automation</title>
+  <meta name="description" content="Tư vấn, thiết kế và build web, app, POS, workflow tự động hóa cho doanh nghiệp nhỏ bằng AI.">
+  <meta property="og:title" content="Mai Châu Hải - Đừng thuê cả đội dev. Chỉ cần 1 người biết dùng AI.">
+  <meta property="og:description" content="Web, app, tool, workflow - nhanh hơn, gọn hơn, dễ vận hành hơn.">
+  <meta property="og:type" content="website">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="container">
-    <div class="logo">MCH</div>
-    <div class="links">
+  <header class="site-nav" data-nav>
+    <a class="logo" href="#home" aria-label="Trang chủ Zak">ZAK</a>
+    <nav class="nav-links" data-menu>
       <a href="#services">Dịch vụ</a>
-      <a href="#features">Hệ thống</a>
-      <a href="#case">Case Study</a>
-      <a href="#pricing">Hợp tác</a>
-      <a href="#about">Về tôi</a>
-    </div>
-    <a href="#contact" class="nav-cta">Liên hệ</a>
+      <a href="#solutions">Giải pháp</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Quy trình</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+    <button class="menu-btn" type="button" data-menu-btn aria-label="Mở menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero light-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AI workflow cho người làm việc thực tế</p>
+          <h1>Đừng thuê cả đội dev.</h1>
+          <h2>Chỉ cần 1 người biết dùng <span>AI.</span></h2>
+          <p class="hero-sub">Tối ưu quy trình, build công cụ nội bộ, tự động hóa vận hành và giảm chi phí triển khai.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#portfolio">Xem dự án thật</a>
+            <a class="btn ghost" href="#contact">Tư vấn qua Zalo</a>
+          </div>
+        </div>
+        <div class="metric-stack reveal" aria-label="Kết quả chính">
+          <div class="soft-glow"></div>
+          <article class="metric-card">
+            <strong data-counter="4" data-suffix="x">0x</strong>
+            <span>Nhanh hơn cách làm truyền thống</span>
+          </article>
+          <article class="metric-card offset">
+            <strong data-counter="75" data-suffix="%">0%</strong>
+            <span>Tiết kiệm chi phí triển khai</span>
+          </article>
+          <article class="metric-card">
+            <strong data-counter="24" data-suffix="/7">0/7</strong>
+            <span>Workflow tự động chạy nền</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services light-section" id="services">
+      <div class="container">
+        <div class="section-head left reveal">
+          <h2>Tôi giúp gì cho doanh nghiệp?</h2>
+          <span class="underline"></span>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="line-icon">AI</div>
+            <h3>Tư vấn AI</h3>
+            <p>Nhìn vào quy trình hiện tại, chọn việc nên tự động hóa trước và hướng dẫn đội của bạn dùng AI đúng cách.</p>
+            <a href="#contact">Trao đổi nhu cầu</a>
+          </article>
+          <article class="service-card reveal">
+            <div class="line-icon">⌘</div>
+            <h3>Build công cụ</h3>
+            <p>Web, dashboard, POS, form nội bộ và công cụ quản trị nhỏ gọn, ưu tiên chạy thật hơn trình diễn.</p>
+            <a href="#portfolio">Xem dự án</a>
+          </article>
+          <article class="service-card reveal">
+            <div class="line-icon">⚡</div>
+            <h3>Tự động hóa</h3>
+            <p>Kết nối dữ liệu, lên lịch nội dung, nhắc việc, báo cáo và giám sát bằng workflow chạy nền.</p>
+            <a href="#solutions">Chọn giải pháp</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutions light-section" id="solutions">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Bạn ở ngành nào?</h2>
+          <p>Chọn ngành gần nhất để xem gói giải pháp phù hợp.</p>
+          <span class="underline"></span>
+        </div>
+
+        <div class="solution-tabs reveal" role="tablist" aria-label="Chọn ngành">
+          <button class="active" data-solution-tab="fnb" role="tab">F&B</button>
+          <button data-solution-tab="retail" role="tab">Retail</button>
+          <button data-solution-tab="service" role="tab">Dịch vụ</button>
+          <button data-solution-tab="content" role="tab">Content</button>
+          <button data-solution-tab="freelancer" role="tab">Freelancer</button>
+        </div>
+
+        <div class="solution-panel reveal" data-solution-panel>
+          <div class="browser-mockup" aria-hidden="true">
+            <div class="browser-bar"><span></span><span></span><span></span><em data-mock-title>POS Dashboard</em></div>
+            <div class="mock-screen" data-mock-screen>
+              <div class="mock-sidebar"></div>
+              <div class="mock-content">
+                <div class="mock-stat-row"><i></i><i></i><i></i></div>
+                <div class="mock-main-grid">
+                  <b></b><b></b><b></b><b></b><b></b><b></b>
+                </div>
+                <div class="mock-table"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <p>Mockup minh họa - thiết kế lại theo quy trình thật của bạn.</p>
+          </div>
+          <div class="solution-copy">
+            <h3 data-solution-title>Quán F&B của bạn sẽ có:</h3>
+            <ul data-solution-features></ul>
+            <div class="price-note" data-solution-price>Từ 8 triệu - hoàn thành trong 2 tuần</div>
+            <a class="btn primary wide" href="#contact" data-solution-cta>Tư vấn cho quán của tôi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="transition to-dark" aria-hidden="true"></div>
+
+    <section class="portfolio dark-section" id="portfolio">
+      <div class="container">
+        <div class="section-head left reveal">
+          <h2>Dự án đang chạy thật</h2>
+          <p>Ảnh thật từ hệ thống đang dùng hằng ngày, không phải mockup trang trí.</p>
+          <span class="underline"></span>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-case="monstea">
+            <div class="project-media"><img src="assets/monstea-pos.png" alt="Ảnh thật dashboard Monstea POS"></div>
+            <div class="project-body">
+              <p class="project-kicker">F&B Management System</p>
+              <h3>Monstea POS</h3>
+              <p>Hệ thống quản lý bán hàng, kho, ghi chú vận hành, doanh thu và lương cho quán trà sữa nhỏ.</p>
+              <div class="pill-row"><span>Realtime</span><span>Quản lý dòng tiền</span><span>PWA</span></div>
+              <div class="tag-row"><span>Firebase</span><span>POS</span><span>Dashboard</span></div>
+              <button class="case-link" type="button" data-case-open="monstea">Xem Case Study →</button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-case="zaklife">
+            <div class="project-media"><img src="assets/zaklife-dashboard.png" alt="Ảnh thật dashboard ZakLife"></div>
+            <div class="project-body">
+              <p class="project-kicker">Personal Command Center</p>
+              <h3>ZakLife</h3>
+              <p>Dashboard cá nhân gom POS, lịch content, task, habit, vault, quick dock và automation monitoring vào một nơi.</p>
+              <div class="pill-row"><span>9 module</span><span>Habit</span><span>Kanban</span></div>
+              <div class="tag-row"><span>Firebase</span><span>GitHub Pages</span><span>Workflow</span></div>
+              <button class="case-link" type="button" data-case-open="zaklife">Xem Case Study →</button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-case="content">
+            <div class="project-media"><img src="assets/content-manager.png" alt="Ảnh thật Content Calendar"></div>
+            <div class="project-body">
+              <p class="project-kicker">Content Automation</p>
+              <h3>Content Auto-Post</h3>
+              <p>Lịch nội dung fanpage kết nối Google Sheet, ZakLife và n8n để duyệt bài trước khi đăng tự động.</p>
+              <div class="pill-row"><span>Auto schedule</span><span>n8n</span><span>Fanpage</span></div>
+              <div class="tag-row"><span>Google Sheet</span><span>Facebook API</span><span>Monitoring</span></div>
+              <button class="case-link" type="button" data-case-open="content">Xem Case Study →</button>
+            </div>
+          </article>
+        </div>
+
+        <section class="comparison reveal" id="comparison">
+          <h2>So sánh thực tế</h2>
+          <div class="compare-grid">
+            <div class="compare-col old">
+              <h3>Cách cũ</h3>
+              <p><span></span>2-3 tháng triển khai</p>
+              <p><span></span>Chi phí đội dev cao</p>
+              <p><span></span>Khó sửa nhanh khi vận hành thay đổi</p>
+              <p><span></span>Dễ tạo tool đẹp nhưng không dùng hằng ngày</p>
+            </div>
+            <div class="compare-col new">
+              <h3>Với AI + quy trình gọn</h3>
+              <p><span></span>1-2 tuần có bản dùng được</p>
+              <p><span></span>Chi phí thấp hơn nhiều</p>
+              <p><span></span>Sửa theo dữ liệu thật</p>
+              <p><span></span>Tập trung vào hiệu quả vận hành</p>
+            </div>
+          </div>
+          <strong>Điểm khác biệt: build ít hơn, đo nhiều hơn, sửa đúng chỗ hơn.</strong>
+        </section>
+      </div>
+    </section>
+
+    <div class="transition to-light" aria-hidden="true"></div>
+
+    <section class="process light-section" id="process">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Quy trình làm việc</h2>
+          <p>Rõ mục tiêu trước, làm nhỏ, kiểm chứng nhanh, rồi mới tự động hóa sâu.</p>
+          <span class="underline"></span>
+        </div>
+        <div class="process-steps">
+          <article class="process-step reveal"><div>01</div><h3>Hiểu quy trình</h3><p>Tách việc nào cần người quyết, việc nào có thể để hệ thống nhắc, ghi nhận hoặc chạy nền.</p></article>
+          <article class="process-step reveal"><div>02</div><h3>Thiết kế màn hình</h3><p>Ưu tiên thao tác thật: xem nhanh, nhập nhanh, sửa nhanh, không nhồi tính năng thừa.</p></article>
+          <article class="process-step reveal"><div>03</div><h3>Build và đo</h3><p>Làm bản dùng được, đưa dữ liệu thật vào, kiểm tra lỗi đồng bộ, chi phí và thói quen dùng.</p></article>
+          <article class="process-step reveal"><div>04</div><h3>Tự động hóa</h3><p>Khi luồng đã ổn, thêm n8n, monitoring, backup, staging và quy trình deploy an toàn.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact light-section" id="contact">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Bắt đầu từ đây</h2>
+          <p>Gửi mô tả ngắn về quy trình bạn muốn tối ưu, tôi sẽ gợi ý hướng làm gọn nhất.</p>
+        </div>
+        <form class="contact-form reveal" action="https://formspree.io/f/YOUR_ID" method="POST">
+          <div class="form-grid">
+            <label>Tên của bạn<input name="name" autocomplete="name" required></label>
+            <label>SĐT hoặc Zalo<input name="phone" autocomplete="tel" required></label>
+          </div>
+          <label>Bạn cần gì?
+            <select name="need">
+              <option>Build website hoặc portfolio</option>
+              <option>Tự động hóa quy trình</option>
+              <option>POS hoặc dashboard quản lý</option>
+              <option>Tư vấn dùng AI trong công việc</option>
+            </select>
+          </label>
+          <label>Mô tả ngắn về nhu cầu<textarea name="message" rows="5"></textarea></label>
+          <button class="btn primary wide" type="submit">Gửi yêu cầu tư vấn</button>
+        </form>
+        <div class="contact-cards reveal">
+          <a href="tel:0903927115">0903 927 115</a>
+          <a href="https://zalo.me/0903927115" target="_blank" rel="noopener">Zalo: 0903 927 115</a>
+          <a href="mailto:maichauhai@gmail.com">maichauhai@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Mai Châu Hải - Zak</p>
+    <p>Ho Chi Minh City, Vietnam</p>
+    <div><a href="#portfolio">Portfolio</a><a href="#contact">Liên hệ</a></div>
+  </footer>
+
+  <div class="case-modal" id="caseModal" aria-hidden="true">
+    <div class="case-modal__backdrop" data-case-close></div>
+    <article class="case-modal__panel" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+      <button class="case-modal__close" type="button" data-case-close aria-label="Đóng">×</button>
+      <p class="case-modal__kicker" id="caseModalKicker"></p>
+      <h2 id="caseModalTitle"></h2>
+      <p class="case-modal__summary" id="caseModalSummary"></p>
+      <div class="case-modal__grid">
+        <section>
+          <h3>Luồng vận hành</h3>
+          <ol id="caseModalFlow"></ol>
+        </section>
+        <section>
+          <h3>Kết quả khách thấy</h3>
+          <ul id="caseModalOutcome"></ul>
+        </section>
+      </div>
+      <div class="case-modal__note" id="caseModalNote"></div>
+      <a class="btn primary" href="#contact" data-case-close>Trao đổi dự án tương tự</a>
+    </article>
   </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero container">
-  <div class="hero-text">
-    <span class="label">Web • AI • Marketing System</span>
-    <h1>Xây hệ thống tạo khách cho <em>dự án kinh doanh mới</em></h1>
-    <p>Tôi giúp doanh nghiệp nhỏ dựng web, AI trả lời khách, luồng lưu thông tin và nội dung marketing đa kênh. Cách làm của tôi đơn giản: làm thử nhỏ, đo kết quả thật, rồi mới mở rộng.</p>
-    <div class="hero-btns">
-      <a href="#case" class="btn btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21"/></svg>
-        Xem Case Thực Tế
-      </a>
-      <a href="#contact" class="btn btn-secondary">Trao đổi dự án</a>
-    </div>
-    <div class="trust-line">
-      <span>Có kinh nghiệm tự build và tự vận hành trong kinh doanh thật</span>
-    </div>
-  </div>
-  <div class="hero-img">
-    <div class="avatar">
-      <img src="assets/portrait.png" alt="Mai Châu Hải">
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-  <div class="container">
-    <span class="label reveal">Vấn đề</span>
-    <h2 class="reveal">Dự án mới thường kẹt ở đâu?</h2>
-    <div class="problem-grid">
-      <div class="prob-card reveal">
-        <span class="emoji">💸</span>
-        <h3>Có dịch vụ nhưng thiếu khách hàng</h3>
-        <p>Hạ tầng, nhân sự hoặc năng lực có sẵn nhưng chưa có luồng kéo khách đều đặn từ web, mạng xã hội và tìm kiếm Google.</p>
-      </div>
-      <div class="prob-card reveal">
-        <span class="emoji">😵</span>
-        <h3>Khách hỏi rải rác, dễ bị sót</h3>
-        <p>Khách đến từ nhiều nơi: web, Facebook, Zalo, TikTok. Nếu không có quy trình nhận và chuyển khách, đội chăm sóc rất dễ phản hồi chậm.</p>
-      </div>
-      <div class="prob-card reveal">
-        <span class="emoji">📊</span>
-        <h3>Làm marketing nhưng khó đo hiệu quả</h3>
-        <p>Đăng bài, chạy nội dung, làm SEO nhưng không rõ kênh nào mang khách thật, khách hỏi gì và bước tiếp theo nên tối ưu ở đâu.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <span class="label reveal">Giải pháp</span>
-    <h2 class="reveal">Một bộ máy nhỏ để tạo khách và chăm khách</h2>
-    <p class="sub reveal">Không bán lời hứa lớn. Tôi ghép web, AI và marketing thành một luồng làm được ngay, đo được và dễ mở rộng.</p>
-
-    <!-- GROUP 1: Growth System -->
-    <div class="svc-group reveal">
-      <h3 class="svc-group-title">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        Cho dự án kinh doanh mới
-      </h3>
-      <div class="svc-grid">
-        <div class="svc-card svc-pos reveal">
-          <h4>Web nhận khách</h4>
-          <p>Landing page hoặc website giới thiệu dịch vụ, có nút gọi/Zalo/form, nội dung rõ lợi ích và tối ưu hiển thị trên điện thoại.</p>
-          <span class="tag">Lead page</span>
-        </div>
-        <div class="svc-card svc-ai reveal">
-          <h4>AI trả lời & lọc khách</h4>
-          <p>AI trả lời câu hỏi thường gặp, hỏi nhu cầu, xin thông tin liên hệ và chuyển khách đủ điều kiện cho bộ phận chăm sóc.</p>
-          <span class="tag">AI assistant</span>
-        </div>
-        <div class="svc-card svc-consult reveal">
-          <h4>Luồng chăm sóc khách</h4>
-          <p>Đẩy khách về Google Sheet, Zalo hoặc đội CSKH. Thiết kế kịch bản phản hồi, nhắc follow-up và đo khách đến từ kênh nào.</p>
-          <span class="tag">CSKH flow</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- GROUP 2: Marketing & Automation -->
-    <div class="svc-group reveal">
-      <h3 class="svc-group-title">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(75% 0.12 310)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        Marketing đa kênh & tự động hóa
-      </h3>
-      <div class="svc-grid">
-        <div class="svc-card svc-bot reveal">
-          <h4>SEO thực dụng</h4>
-          <p>Nghiên cứu từ khóa, cấu trúc bài viết, FAQ và trang dịch vụ để khách tìm Google có cơ hội thấy doanh nghiệp tự nhiên hơn.</p>
-          <span class="tag">Search</span>
-        </div>
-        <div class="svc-card svc-chatbot reveal">
-          <h4>Nội dung Facebook/TikTok/YouTube</h4>
-          <p>Biến một thông điệp bán hàng thành bài viết, kịch bản video ngắn, câu hỏi thường gặp và nội dung nuôi niềm tin.</p>
-          <span class="tag">Content</span>
-        </div>
-        <div class="svc-card svc-auto reveal">
-          <h4>Automation workflow</h4>
-          <p>Cảnh báo Telegram/Zalo, đồng bộ Google Sheets, báo cáo tự động và kết nối các công cụ để giảm việc lặp đi lặp lại.</p>
-          <span class="tag">Automation</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- GROUP 3: Website -->
-    <div class="svc-group reveal">
-      <h3 class="svc-group-title">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(70% 0.15 220)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-        Thiết kế & Lập trình Website
-      </h3>
-      <div class="svc-grid">
-        <div class="svc-card svc-web reveal">
-          <h4>Landing Page & Portfolio</h4>
-          <p>Thiết kế web giới thiệu doanh nghiệp (xây dựng, nội thất...). Giao diện UI/UX sang trọng, hiệu ứng cuộn mượt mà, tối ưu 100% hiển thị trên điện thoại.</p>
-          <span class="tag" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">Premium UI</span>
-        </div>
-        <div class="svc-card svc-web-cms reveal">
-          <h4>Web kèm hệ thống CMS</h4>
-          <p>Hệ thống tự động hóa nội dung. Bàn giao kèm trang Quản trị (Admin) siêu dễ dùng, giúp bạn tự do cập nhật dự án mới, viết blog chuẩn SEO mà không cần biết code.</p>
-          <span class="tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Fullstack</span>
-        </div>
-        <div class="svc-card svc-web-auto reveal">
-          <h4>Web tích hợp AI Automation</h4>
-          <p>Vượt xa web truyền thống. Nhúng thẳng Chatbot AI tư vấn 24/7 trực tiếp trên web, tự động lấy thông tin khách hàng đẩy về Zalo/Google Sheet ngay lập tức.</p>
-          <span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">AI Integrated</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="container">
-    <span class="label reveal">Hệ thống có thể triển khai</span>
-    <h2 class="reveal">Từ khách mới đến chăm sóc lại</h2>
-    <p class="sub reveal">Một dự án mới không cần làm quá phức tạp ngay từ đầu. Quan trọng là có luồng nhận khách, phản hồi nhanh và đo được kết quả.</p>
-    <div class="feat-list">
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <h3>Web rõ dịch vụ, dễ để lại thông tin</h3>
-          <p>Trang giới thiệu cần nói rõ khách được gì, quy trình ra sao, giá trị khác biệt nằm ở đâu và có nút liên hệ đủ nổi bật trên điện thoại.</p>
-        </div>
-        <div class="feat-visual"><div class="mock">Khách xem dịch vụ → Bấm Zalo/Form → Để lại nhu cầu<br><br>Không để khách phải tự đoán bước tiếp theo</div></div>
-      </div>
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <h3>AI trả lời bước đầu</h3>
-          <p>AI có thể giải thích dịch vụ, hỏi nhu cầu, lấy thông tin liên hệ và chuyển khách phù hợp cho người thật xử lý. AI hỗ trợ sale, không thay hoàn toàn sale.</p>
-        </div>
-        <div class="feat-visual"><div class="mock">AI hỏi: nhu cầu, khu vực, thời gian, ngân sách<br>→ Lưu thông tin<br>→ Chuyển cho CSKH gọi lại</div></div>
-      </div>
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <h3>Lưu khách và đo nguồn khách</h3>
-          <p>Thông tin khách có thể đẩy về Google Sheet/CRM đơn giản, kèm nguồn đến từ web, Facebook, TikTok, YouTube hoặc Google để biết kênh nào đáng đầu tư.</p>
-        </div>
-        <div class="feat-visual"><div class="mock">Web / Facebook / TikTok / Google<br>→ Form hoặc chat<br>→ Sheet / CSKH / Báo cáo</div></div>
-      </div>
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <h3>Nội dung SEO và mạng xã hội</h3>
-          <p>Một chủ đề có thể tái sử dụng thành bài SEO, bài Facebook, kịch bản video ngắn và FAQ cho AI. Làm ít nhưng có hệ thống, tránh đăng rời rạc.</p>
-        </div>
-        <div class="feat-visual"><div class="mock">1 insight khách hàng<br>→ Bài SEO<br>→ Post Facebook<br>→ Video ngắn<br>→ Câu trả lời AI</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE STUDY -->
-<section id="case">
-  <div class="container">
-    <span class="label reveal">Bằng chứng</span>
-    <h2 class="reveal">Case Study: Quán Monstea</h2>
-    <p class="sub reveal">Tôi không bán lý thuyết. Monstea là ví dụ tôi tự gặp vấn đề, tự build hệ thống và tự dùng trong vận hành thật.</p>
-    <div class="case-card reveal">
-      <div class="case-header">
-        <span class="badge">Monstea</span>
-        <h3>Từ vận hành thủ công → hệ thống tự build trong 2 tuần</h3>
-      </div>
-      <div class="case-metrics">
-        <div class="case-metric"><div class="val">0đ</div><div class="lbl">Phí hàng tháng<br>(trước: 300k/tháng)</div></div>
-        <div class="case-metric"><div class="val">2h</div><div class="lbl">Tiết kiệm mỗi ngày<br>quản lý kho + sổ sách</div></div>
-        <div class="case-metric"><div class="val">2</div><div class="lbl">Thiết bị sync<br>real-time qua cloud</div></div>
-        <div class="case-metric"><div class="val">5 phút</div><div class="lbl">Nhân viên mới<br>học xong cách dùng</div></div>
-      </div>
-      <div class="case-story">
-        <div class="case-col case-before">
-          <h4>Trước</h4>
-          <ul>
-            <li>Ghi sổ tay, cuối ngày ngồi cộng</li>
-            <li>Không biết tồn kho, hay hết NL bất ngờ</li>
-            <li>Mỗi máy một data, phải nhắn Zalo hỏi</li>
-            <li>Trả phí POS 300k/tháng cho tính năng không dùng</li>
-          </ul>
-        </div>
-        <div class="case-col case-after">
-          <h4>Sau</h4>
-          <ul>
-            <li>Doanh thu tự tổng hợp, báo cáo cuối ngày 1 click</li>
-            <li>Cảnh báo hết NL, gợi ý nhập hàng thông minh</li>
-            <li>Sync 2 thiết bị tức thì, chủ quán xem từ xa</li>
-            <li>Zero phí tháng, toàn quyền sở hữu code</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="container">
-    <span class="label reveal">Hợp tác</span>
-    <h2 class="reveal">Bắt đầu bằng một phạm vi nhỏ, rõ kết quả</h2>
-    <p class="sub reveal">Tôi ưu tiên làm thử có đo lường trước khi mở rộng. Cách này giảm rủi ro cho cả hai bên.</p>
-    <div class="price-grid price-3col reveal">
-      <div class="price-card">
-        <h3>Trao đổi ban đầu</h3>
-        <div class="price">Miễn phí</div>
-        <div class="note">30 phút để hiểu bài toán</div>
-        <ul>
-          <li>Hiểu mục tiêu kinh doanh</li>
-          <li>Nhìn nhanh tài sản sẵn có</li>
-          <li>Đề xuất hướng thử nhỏ</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary">Đặt lịch trao đổi</a>
-      </div>
-      <div class="price-card">
-        <h3>Pilot tạo khách</h3>
-        <div class="price">Theo phạm vi</div>
-        <div class="note">Làm thử 2-4 tuần</div>
-        <ul>
-          <li>Landing page hoặc trang dịch vụ</li>
-          <li>Form/chat nhận khách</li>
-          <li>AI trả lời bước đầu</li>
-          <li>Google Sheet/CSKH flow</li>
-          <li>Báo cáo kết quả cơ bản</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary">Bàn phạm vi thử</a>
-      </div>
-      <div class="price-card featured">
-        <h3>Hệ thống mở rộng</h3>
-        <div class="price">Theo dự án</div>
-        <div class="note">Sau khi pilot có tín hiệu tốt</div>
-        <ul>
-          <li>Web nhiều trang hoặc CMS</li>
-          <li>SEO và nội dung đa kênh</li>
-          <li>Automation nội bộ</li>
-          <li>Dashboard theo dõi lead</li>
-          <li>Tối ưu theo số liệu thật</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">Trao đổi hợp tác</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <span class="label reveal">Về tôi</span>
-    <h2 class="reveal">Người làm kỹ thuật có trải nghiệm kinh doanh thật</h2>
-    <div class="about-row reveal">
-      <div class="about-img">
-        <div class="avatar">
-          <img src="assets/portrait.png" alt="Mai Châu Hải">
-        </div>
-      </div>
-      <div class="about-text">
-        <h3>Mai Châu Hải</h3>
-        <p>Tôi từng tự vận hành quán trà sữa Monstea ở TP.HCM, nên tôi hiểu một dự án nhỏ không chỉ cần công nghệ đẹp. Nó cần khách hàng, quy trình rõ, người phụ trách biết việc gì cần làm tiếp và số liệu đủ để ra quyết định.</p>
-        <p>Vì vậy khi build web, AI hay automation, tôi luôn nhìn theo hướng thực dụng: hệ thống này có giúp tạo khách không, có giảm việc thủ công không, có đo được hiệu quả không. Cái gì chắc thì nói chắc, cái gì cần thử thì làm pilot nhỏ trước.</p>
-        <div class="about-tags">
-          <span>JavaScript</span><span>Firebase</span><span>Node.js</span>
-          <span>Discord API</span><span>AI Automation</span><span>Business Operations</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta" id="contact">
-  <div class="container">
-    <h2 class="reveal">Muốn thử một hướng tạo khách rõ ràng hơn?</h2>
-    <p class="reveal">Trao đổi ngắn để hiểu bài toán, chọn phạm vi nhỏ và quyết định bước thử nghiệm đầu tiên.</p>
-    <div class="contact-row reveal">
-      <a href="https://zalo.me/0903927115" target="_blank" class="contact-pill">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.77 1.36 5.24 3.5 6.87V22l3.93-2.16c.83.23 1.7.36 2.57.36 5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
-        Zalo: 0903 927 115
-      </a>
-      <a href="tel:0903927115" class="contact-pill">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        Gọi: 0903 927 115
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">&copy; 2026 Mai Châu Hải. Built with code, business sense & practical AI.</div>
-</footer>
-
-<script>
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
+  <script src="script.js"></script>
 </body>
 </html>

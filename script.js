@@ -1,8 +1,10 @@
 const solutions = {
   fnb: {
     mockTitle: "F&B POS Dashboard",
+    image: "assets/mockup-fnb-pos.png",
+    imageAlt: "Mockup F&B POS dashboard",
     title: "Quán F&B của bạn sẽ có:",
-    price: "Từ 8 triệu - hoàn thành trong 2 tuần",
+    price: "Linh hoạt theo quy mô - ưu tiên tiết kiệm thời gian, giảm lỗi và nhìn rõ dòng tiền",
     cta: "Tư vấn cho quán của tôi",
     accent: "#059669",
     features: [
@@ -16,8 +18,10 @@ const solutions = {
   },
   retail: {
     mockTitle: "Retail Sales System",
+    image: "assets/mockup-retailhub.png",
+    imageAlt: "Mockup RetailHub dashboard",
     title: "Shop retail của bạn sẽ có:",
-    price: "Từ 6 triệu - hoàn thành trong 1-2 tuần",
+    price: "Linh hoạt theo số sản phẩm - tối ưu tốc độ bán hàng và chi phí vận hành",
     cta: "Tư vấn cho shop của tôi",
     accent: "#0ea5e9",
     features: [
@@ -31,8 +35,10 @@ const solutions = {
   },
   service: {
     mockTitle: "Service Booking Flow",
+    image: "assets/mockup-service.png",
+    imageAlt: "Mockup service booking CRM dashboard",
     title: "Dịch vụ của bạn sẽ có:",
-    price: "Từ 10 triệu - hoàn thành trong 2 tuần",
+    price: "Tùy theo quy trình tư vấn/đặt lịch - tối ưu phản hồi, chăm sóc và chi phí nhân sự",
     cta: "Tư vấn cho dịch vụ của tôi",
     accent: "#7c3aed",
     features: [
@@ -46,8 +52,10 @@ const solutions = {
   },
   content: {
     mockTitle: "Content Calendar",
+    image: "assets/mockup-content.png",
+    imageAlt: "Mockup content calendar dashboard",
     title: "Đội content của bạn sẽ có:",
-    price: "Từ 5 triệu - hoàn thành trong 1 tuần",
+    price: "Tùy theo số kênh và lịch đăng - tối ưu thời gian vận hành trên mỗi bài",
     cta: "Tư vấn workflow content",
     accent: "#f59e0b",
     features: [
@@ -61,8 +69,10 @@ const solutions = {
   },
   freelancer: {
     mockTitle: "Freelancer Portfolio",
+    image: "assets/mockup-freelance.png",
+    imageAlt: "Mockup freelancer portfolio builder dashboard",
     title: "Portfolio cá nhân của bạn sẽ có:",
-    price: "Từ 3 triệu - hoàn thành trong 1 tuần",
+    price: "Linh hoạt theo mục tiêu cá nhân - tối ưu hình ảnh chuyên nghiệp trên chi phí triển khai",
     cta: "Tư vấn portfolio của tôi",
     accent: "#059669",
     features: [
@@ -144,13 +154,17 @@ function setSolution(key) {
   const solCta = document.querySelector("[data-solution-cta]");
   const list = document.querySelector("[data-solution-features]");
   const screen = document.querySelector("[data-mock-screen]");
-  if (!mockTitle || !solTitle || !solPrice || !solCta || !list || !screen) return;
+  const image = document.querySelector("[data-mock-image]");
+  if (!mockTitle || !solTitle || !solPrice || !solCta || !list || !screen || !image) return;
   mockTitle.textContent = data.mockTitle;
   solTitle.textContent = data.title;
   solPrice.textContent = data.price;
   solCta.textContent = data.cta;
   list.innerHTML = data.features.map((item) => `<li>${item}</li>`).join("");
-  screen.style.background = `linear-gradient(135deg, #10151f, ${data.accent}33 58%, #182337)`;
+  screen.dataset.mockType = key;
+  image.src = data.image;
+  image.alt = data.imageAlt || data.mockTitle;
+  screen.style.setProperty("--mock-accent", data.accent);
 }
 
 function animateCounter(element) {

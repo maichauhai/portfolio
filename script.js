@@ -140,6 +140,25 @@ const caseStudies = {
       "Giảm rủi ro workflow chạy nhưng không ai biết nó đã lỗi."
     ],
     note: "Luồng này được thiết kế theo nguyên tắc: automation không thay người duyệt chất lượng, nó chỉ lấy phần lặp lại ra khỏi tay người vận hành."
+  },
+  rental: {
+    kicker: "Rental Property Platform",
+    title: "Rental Home System",
+    summary: "Một nền tảng cho thuê nhà cần giúp khách tìm căn phù hợp thật nhanh, để lại nhu cầu dễ dàng, còn đội vận hành thì nhìn được trạng thái nhà, lead và doanh thu ở một nơi.",
+    flow: [
+      "Phase 1: MVP gồm bản đồ, danh sách nhà, chi tiết căn, form khách quan tâm và dashboard lead cơ bản.",
+      "Phase 2: Mở rộng dashboard admin để quản lý nhà, trạng thái, lead, phân quyền và báo cáo vận hành.",
+      "Phase 3: Thêm tài khoản khách thuê và các yêu cầu dịch vụ sau khi đã thuê.",
+      "Phase 4: Bổ sung thanh toán, hợp đồng PDF và xác nhận tự động.",
+      "Phase 5: Dùng dữ liệu thật để nâng cấp AI, báo cáo sâu và tối ưu marketing."
+    ],
+    outcome: [
+      "Khách xem nhà theo bản đồ và lọc nhanh thay vì hỏi thủ công từng căn.",
+      "Mỗi căn có trang chi tiết rõ ràng, form quan tâm và dữ liệu lead đi về dashboard.",
+      "Chủ/đội vận hành biết căn nào trống, căn nào đã thuê, lead nào cần xử lý.",
+      "Có lộ trình mở rộng rõ, không phải build tất cả ngay từ đầu."
+    ],
+    note: "Case này ưu tiên tư duy triển khai theo giai đoạn: ra bản dùng được trước, đo dữ liệu thật, rồi mới mở rộng payment, hợp đồng và AI nâng cao."
   }
 };
 
@@ -252,12 +271,46 @@ function initCaseStudyModal() {
   });
 }
 
+function initProjectCarousels() {
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const image = carousel.querySelector("[data-carousel-image]");
+    const prev = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
+    const dots = carousel.querySelector("[data-carousel-dots]");
+    const images = (carousel.dataset.images || "").split("|").filter(Boolean);
+    const alts = (carousel.dataset.alts || "").split("|");
+    let index = 0;
+
+    const render = () => {
+      if (!image || !images.length) return;
+      image.src = images[index];
+      image.alt = alts[index] || "";
+      if (dots) {
+        dots.innerHTML = images
+          .map((_, dotIndex) => `<span class="${dotIndex === index ? "active" : ""}"></span>`)
+          .join("");
+      }
+    };
+
+    prev?.addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      render();
+    });
+    next?.addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      render();
+    });
+    render();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setSolution("fnb");
   initReveal();
   initSmoothScroll();
   initMobileMenu();
   initCaseStudyModal();
+  initProjectCarousels();
 
   document.querySelectorAll("[data-solution-tab]").forEach((button) => {
     button.addEventListener("click", () => setSolution(button.dataset.solutionTab));
